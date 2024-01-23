@@ -1,0 +1,387 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-family:"Lexend"
+}
+*:not(.fa-solid):not(.fa):not(.e-icons){
+    font-family:"Lexend"
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #12161d;
+    color: #fff;
+    overflow-y:scroll;
+
+}
+.main-content {
+    margin-left: 290px;
+}
+
+    .main-content.left-align-main-content {
+        margin-left: 90px;
+    }
+/*.e-bigger {
+    font-size: x-large;
+}*/
+
+﻿
+/*Radio Button Group*/ 
+.e-btn-group.custom-rbt-group {
+    width: 100%;
+}
+.e-btn-group .custom-rbt-group .e-btn {
+    width: 50%;
+}
+.custom-rbt-group label.e-btn {
+    box-shadow: none !important;
+    border: 1px solid #fff;
+    background-color: rgb(34 43 51);
+    color: #fff;
+}
+
+.e-btn-group.custom-rbt-group input:checked + label.e-btn {
+    background-color: #fff;
+    color: #212b36;
+    border: 2px solid #fff;
+    
+}
+
+.widget{
+    border-radius : 1rem ; 
+    background-color : #1a222b;
+}
+    .widget.summary > div:first-child {
+        background-color: #222b33;
+        padding: 1rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+        .widget.summary > div:first-child i {
+            font-weight: bold;
+        }
+
+    .widget.income > div:first-child {
+        color: #65da41;
+    }
+
+    .widget.expense > div:first-child {
+        color: #ff4e48;
+    }
+
+    .widget.balance > div:first-child {
+        color: #2aa1ff;
+    }
+
+    .widget.chart {
+        padding: 5px;
+    }
+
+/* Add the following CSS to style your table like Syncfusion EJS-Grid */
+
+/* Table container styling */
+/* Updated CSS to address the heading background and remove borders */
+
+/* Updated CSS for a borderless table */
+
+/* Updated CSS for a borderless table */
+
+.table-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #212B36; /* Dark blue background color */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #fff; /* White text color for better visibility on dark background */
+}
+
+.my-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .my-table th, .my-table td {
+        padding: 12px;
+        text-align: left;
+        color: #fff; /* White text color for better visibility on dark background */
+    }
+
+    .my-table th {
+        background-color: transparent; /* Make heading background transparent */
+        border: none; /* Remove borders from the heading */
+    }
+
+    .my-table tbody tr:hover {
+        background-color: transparent; /* Remove hover background color */
+    }
+
+/* Pagination styling (if applicable) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+    .pagination a {
+        padding: 8px;
+        margin: 0 4px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .pagination a:hover {
+            background-color: #f4f4f4;
+        }
+
+    .pagination .active {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+
+/* Pagination styling (if applicable) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+    .pagination a {
+        padding: 8px;
+        margin: 0 4px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .pagination a:hover {
+            background-color: #f4f4f4;
+        }
+
+    .pagination .active {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+
+.edit-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+    .edit-icon img {
+        width: 100%;
+        height: 100%;
+    }
+nav .middle-heading {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-left: 50%; /* Move the heading to the middle */
+    transform: translateX(-50%); /* Center the heading */
+}
+#sidebar {
+    border-right:1px dashed black;
+    padding:10px 20px;
+    background-color: #12161d;
+    position:fixed;
+    height:100%;
+}
+/*Navbar*/
+nav.navbar {
+    background-color: rgba(18, 22, 29);
+}
+
+    nav.navbar i {
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+        nav.navbar i:hover, nav.navbar img:hover {
+            cursor: pointer;
+            background-color: #48545f14;
+            transform: scale(1.05) translateZ(0px);
+        }
+
+nav.navbar {
+    margin-left: 290px;
+}
+
+nav.navbar.margin-left {
+    z-index:-1;
+    margin-right: 8rem;
+    margin-left: 210px;
+}
+
+#sidebar.hide nav.navbar {
+    margin-left: 115px;
+}
+
+/*Profile Pic*/
+img.profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(72, 84, 95, 0.12);
+    padding: 16px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+    .profile-wrapper .titles {
+        line-height: 1;
+    }
+
+
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+#sidebar {
+    height: 100vh;
+    width: 290px;
+    background-color: #1a222b;
+    color: #fff;
+    position: fixed;
+    transition: 0.3s;
+    overflow-y: auto;
+}
+
+    #sidebar .logo-wrapper {
+        padding: 20px;
+        text-align: center;
+    }
+
+    #sidebar .profile-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        border-top: 1px solid #555;
+    }
+
+    #sidebar .profile-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    #sidebar .titles {
+        display: flex;
+        flex-direction: column;
+    }
+
+        #sidebar .titles h6 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        #sidebar .titles .text-muted {
+            font-size: 12px;
+        }
+
+    #sidebar .menu-item {
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.3s;
+
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+        #sidebar .menu-item:hover {
+            background-color: #555;
+        }
+
+        #sidebar .menu-item p {
+            margin: 0rem;
+        }
+
+#sidebar-toggler {
+    cursor: pointer;
+    position: fixed;
+    left: 255px;
+    top: 20px;
+    font-size: 24px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+#sidebar.hide {
+    width: 115px
+}
+
+    #sidebar.hide #sidebar-toggler {
+        left: 120px;
+        transform: rotate(180deg)
+    }
+
+    #sidebar.hide .titles {
+        display: none!important;
+    }
+
+    #sidebar.hide .menu-item p {
+        display: none;
+    }
+
+    #content {
+        transition: 0.3s;
+        padding: 20px;
+    }
+
+    #content.hide {
+        margin-left: 100px;
+    }
+
+/*#sidebar.hide nav.navbar {
+    margin-left: 115px;
+}*/
+
+#logo-profile-only {
+    display: none;
+    transition: 0.3s;
+}
+
+    #logo-profile-only.hide {
+        display: none;
+    }

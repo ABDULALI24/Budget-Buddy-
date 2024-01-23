@@ -1,0 +1,72 @@
+﻿<div id="sidebar">
+    <div class="logo-wrapper">
+        <div class="app-logo">
+            <img src="~/favicon-32x32.png" alt="Logo">
+        </div>
+        <div class="w-100"></div>
+        <i id="sidebar-toggler" class="fa-solid">&#xf053;</i>
+    </div>
+
+    <div class="profile-wrapper">
+        <img class="profile-pic" src="~/lib/profile.png" alt="Profile Picture">
+        <div class="titles d-flex flex-column ps-3">
+            <h6 class="mb-0">Budget Buddy </h6>
+            <span class="text-muted">Abdul Ali</span>
+        </div>
+    </div>
+
+    <a href="/Dashboard/Index" class="menu-item">
+        <i class="fa-solid fa-chart-simple fa-xl"></i>
+        <p>Reports</p>
+    </a>
+    <a href="/Category/list" class="menu-item">
+        <i class="fa-solid fa-folder-closed fa-xl"></i>
+        @* &nbsp&nbspCategories *@
+        <p>Categories</p>
+    </a>
+    <a href="/Transactions/list" class="menu-item">
+        <i class="fa-solid fa-arrow-right-arrow-left fa-xl"></i>
+        @* &nbsp&nbspTransactions *@
+        <p>Transactions</p>
+    </a>
+   
+    
+</div>
+
+<div id="content">
+    <!-- Your main content goes here -->
+</div>
+
+<div id="logo-profile-only">
+    <div class="logo-wrapper">
+        <div class="app-logo">
+            <img src="~/logo.png" alt="Logo">
+        </div>
+        <div class="w-100"></div>
+        <i id="sidebar-toggler" class="fa-solid">&#xf053;</i>
+    </div>
+
+    <div class="profile-wrapper">
+        <img class="profile-pic" src="~/profile.jpg" alt="Profile Picture">
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+        const logoProfileOnly = document.getElementById('logo-profile-only');
+        const sidebarToggler = document.getElementById('sidebar-toggler');
+        const navbarEl = document.querySelector(".navbar")
+        // const mainEl = document.querySelector(".main-content")
+
+
+        sidebarToggler.addEventListener('click', function () {
+            sidebar.classList.toggle('hide');
+            content.classList.toggle('hide');
+            logoProfileOnly.classList.toggle('show');
+            navbarEl.classList.toggle("margin-left");
+            // mainEl.classList.toggle(".left-align")
+        });
+    });
+</script>

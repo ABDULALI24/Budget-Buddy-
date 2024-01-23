@@ -1,0 +1,62 @@
+﻿@model Expense_Tracker.Models.Transaction
+@{
+    ViewData["PageTitle"] = Model.TransactionId == 0 ? "Create a new transaction" : "Edit transaction";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="widget p-5" style="background-color:#212b36">
+            <form asp-action="AddOrEdit" asp-controller="Transactions">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="TransactionId" value="@Model.TransactionId" />
+
+                <div class="mb-3">
+                    <label asp-for="Date" class="form-label">Date</label>
+                    <input style="background-color:#b0acac" asp-for="Date" class="form-control" placeholder="Select Date" />
+                    <span asp-validation-for="Date" class="text-danger fs-6"></span>
+                    <!-- Add datepicker script and style -->
+                    <script>
+                        $(function () {
+                            $('#Date').datepicker();
+                        });
+                    </script>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select style="background-color:#b0acac" asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control" placeholder="Select Category"></select>
+                    <span asp-validation-for="CategoryId"  class="text-danger fs-6"></span>
+                </div>
+                
+
+                <div class="mb-3">
+                    <label asp-for="Amount" class="form-label">Amount</label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                        <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+                    </svg>
+                    <input style="background-color:#b0acac" asp-for="Amount" class="form-control" placeholder="Enter Amount" />
+                    <span asp-validation-for="Amount" class="text-danger fs-6"></span>
+                </div>
+
+                
+
+                <div class="mb-3">
+                    <label asp-for="Note" class="form-label">Note</label>
+                    <textarea row="5" cols="50" style="background-color:#b0acac" asp-for="Note" class="form-control" placeholder="Enter Note"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
+        </div>
+    </div>
+</div>
+
+

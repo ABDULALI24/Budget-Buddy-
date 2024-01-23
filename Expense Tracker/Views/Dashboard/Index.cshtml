@@ -1,0 +1,236 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+	ViewData["isDashboard"] = true;
+}
+
+
+<div class="row md-4">
+
+	<div class="col-md-4">
+		<div class="d-flex flex-row widget summary income">
+			<div class="d-flex flex-column justify-content-center p-5">
+				<i class="fa-solid fa-indian-rupee-sign fa-2xl" "></i>
+
+			</div>
+			<div class="d-flex flex-column m-auto py-3">
+				<span class="lead">Total Income</span>
+				<h1 class="display-6 fw-bold">@ViewBag.TotalIncome</h1>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="col-md-4">
+		<div class="d-flex flex-row widget summary expense">
+			<div class="d-flex flex-column justify-content-center p-5">
+				<i class="fa-solid fa-indian-rupee-sign fa-2xl"></i>
+
+			</div>
+			<div class="d-flex flex-column m-auto py-3">
+				<span class="lead">Total Expense</span>
+				<h1 class="display-6 fw-bold">@ViewBag.TotalExpense</h1>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="col-md-4">
+		<div class="d-flex flex-row widget summary balance">
+			<div class="d-flex flex-column justify-content-center p-5">
+				<i class=" fa-solid fa-indian-rupee-sign fa-2xl"></i>
+
+			</div>
+			<div class="d-flex flex-column m-auto py-3">
+				<span class="lead">Balance</span>
+				<h1 class="display-6 fw-bold">@ViewBag.Balance</h1>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+<br>
+<div class="row mb-4">
+	<div class="col-md-4">
+		<div class="widget chart">
+			<div class="p-4">
+				<h5 class="fw-bold text-center">Expense By Category</h5>
+			</div>
+			<canvas id="myChart" width="400" height="40"></canvas>
+			<script>
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var data = @Html.Raw(Json.Serialize(ViewBag.DoughnutChartData));
+				var labels = data.map(function (e) {
+					return e.categoryTitleWithIcon;
+				});
+				var amounts = data.map(function (e) {
+					return e.amount;
+				});
+
+				var myChart = new Chart(ctx, {
+					type: 'doughnut',
+					data: {
+						labels: labels,
+						datasets: [{
+							label: 'Amount',
+							data: amounts,
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)',
+								'rgba(255, 0, 0, 0.2)' ,
+				                'rgba(0, 128, 0, 0.2)' ,
+				                'rgba(0, 0, 255, 0.2)' ,
+				                'rgba(255, 255, 0, 0.2)', 
+				                'rgba(128, 0, 128, 0.2)' ,
+				                'rgba(0, 255, 255, 0.2)'
+							],
+							borderColor: [
+								'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)',
+								'rgba(255, 0, 0, 1)',
+												'rgba(0, 128, 0, 1)',
+												'rgba(0, 0, 255, 1)',
+												'rgba(255, 255, 0,1)',
+												'rgba(128, 0, 128,1)',
+												'rgba(0, 255, 255, 1)',
+							],
+							borderWidth: 1
+						}]
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: true
+					}
+				});
+
+			</script>
+
+			
+		</div>
+	</div>
+
+
+	<div class="col-md-8">
+		<div class="widget chart">
+			<div class="p-4">
+				<h5 class="fw-bold text-center" style="">Income vs Expense</h5>
+			</div>
+			<canvas id="splineChart" width="400" height="200"></canvas>	
+			<!-- Script to initialize and render the Spline chart -->
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+
+					
+
+					var data = @Html.Raw(Json.Serialize(ViewBag.SplineChartData));
+
+					var labels = data.map(item => item.day);
+					var incomeData = data.map(item => item.income);
+					var expenseData = data.map(item => item.expense);
+
+					var ctx = document.getElementById('splineChart').getContext('2d');
+
+					var myChart = new Chart(ctx, {
+						type: 'line',
+						data: {
+							labels: labels,
+							datasets: [
+								{
+									label: 'Income',
+									borderColor: 'rgba(75, 192, 192, 1)',
+									backgroundColor: 'rgba(75, 192, 192, 0.2)',
+									data: incomeData,
+									fill: false,
+									cubicInterpolationMode: 'monotone'
+								},
+								{
+									label: 'Expense',
+									borderColor: 'rgba(255, 99, 132, 1)',
+									backgroundColor: 'rgba(255, 99, 132, 0.2)',
+									data: expenseData,
+									fill: false,
+									cubicInterpolationMode: 'monotone'
+								}
+							]
+						},
+						options: {
+							scales: {
+								x: {
+									type: 'category',
+									position: 'bottom'
+								},
+								y: {
+									min: 0
+								}
+							}
+						}
+					});
+
+					console.log("old script tag")
+				});				
+			</script>
+
+
+			
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="widget">
+			<div class="p-4">
+				<h5 class="fw-bold text-center">Recent Transactions</h5>
+			</div>
+			<div class="table-container display">
+				<table id="myTable" class="my-table table-hover ">
+					<thead>
+						<tr>
+							
+							<th>Category</th>
+							<th>Amount</th>
+							<th>Date</th>
+							<!-- Add more columns as needed -->
+						</tr>
+					</thead>
+					<tbody>
+				@foreach (var transaction in ViewBag.RecentTransactions)
+				{
+							<tr>
+								
+								<td>@transaction.Category.TitlewithIcon</td>
+								<td>@transaction.Amount</td>
+								<td>@transaction.Date.ToString("dd/MM/yyyy")</td>
+								<!-- Add more cells as needed -->
+							</tr>
+				}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="widget h-100">
+			<div class="d-flex justify-content-center align-items-center h-100">
+				<span><i class="fa-solid fa-plus fa-2xl"></i> Widget</span>
+			</div>
+		</div>
+	</div>
+</div>
